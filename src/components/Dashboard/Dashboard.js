@@ -49,7 +49,6 @@ class Dashboard extends Component {
       <div>
         <h1>Dashboard</h1>
         {mappedHouses}
-        <House />
         <button  onClick={()=> this.handleNewProperty()}>Add New Property</button>
       </div>
      );

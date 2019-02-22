@@ -11,7 +11,7 @@ massive(CONNECTION_STRING).then(db => {
   app.set('db', db)
 
   console.log('connected to database');
-  
+
   app.listen( SERVER_PORT, () => console.log(`Bingpot on ${SERVER_PORT}`))
 })
  
@@ -20,4 +20,5 @@ massive(CONNECTION_STRING).then(db => {
 //Endpoints
 const ctrl = require('./controller')
 app.get(`/api/houses`, ctrl.getHouses)
+app.post(`/api/houses`, ctrl.createHouse)
 

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Axios from 'axios';
 
 class Wizard extends Component {
   constructor(){
@@ -21,6 +22,19 @@ class Wizard extends Component {
       [e.target.id]: e.target.value
     });
   };
+
+  createHouse(){
+    const { name, address, city, state, zip} = this.state
+    Axios.post('/api/houses', {
+      property_name: name,
+      address,
+      city,
+      state,
+      zip
+     }).then( res => {
+       this.props.history.push('/')
+     })
+  }
 
   render() { 
 
@@ -69,6 +83,7 @@ class Wizard extends Component {
 
 
 
+        <button onClick={() => this.createHouse()} >Complete</button>
         <button onClick={() => this.handleCancel()} >Cancel</button>
       </div>
      );
