@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { updateName, updateAddress, updateCity, updateSt, updateZip } from '../../ducks/reducer'
 
 
 class Step_1 extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       name: '',
       address: '',
@@ -25,12 +26,23 @@ class Step_1 extends Component {
       [e.target.id]: e.target.value
     });
   };
-
-
-  render() { 
-    console.log(this.props)
-
-
+  
+  // handleNext(){
+    //   const { updateName, updateAddress, updateCity, updateSt, updateZip } = this.props
+    //   const { name, address, city, state, zip } = this.state
+    //   updateName(name);
+    //   updateAddress(address);
+    //   updateCity(city);
+    //   updateSt(state);
+    //   updateZip(zip);
+    //   this.props.history.push('/wizard/step2')
+    //   console.log(this.props)
+    // }
+    
+    
+    render() { 
+    const { updateName, updateAddress, updateCity, updateSt, updateZip } = this.props
+    
     return ( 
       <div>
         <h1>Wizard</h1>
@@ -38,45 +50,45 @@ class Step_1 extends Component {
         <input 
             id="name"
             type="text"
-            value={this.state.name}
-            onChange={ this.handleInput}
+            // value={this.state.name}
+            onChange={ (e) => updateName(e.target.value) }
         />
 
         <h3>Address</h3>
         <input 
           id='address'
           type="text"
-          value={this.state.address} 
-          onChange={this.handleInput} 
+          // value={this.state.address} 
+          onChange={(e) => updateAddress(e.target.value)} 
         />
         
         <h3>City</h3>
         <input 
           id='city'
           type="text"
-          value={this.state.city} 
-          onChange={this.handleInput} 
+          // value={this.state.city} 
+          onChange={(e) => updateCity(e.target.value)} 
         />
 
         <h3>State</h3>
         <input 
           id='state'
           type="text"
-          value={this.state.state} 
-          onChange={this.handleInput} 
+          // value={this.state.state} 
+          onChange={(e) => updateSt(e.target.value)} 
         />
 
         <h3>Zip</h3>
         <input 
           id='zip'
           type="text"
-          value={this.state.zip} 
-          onChange={this.handleInput} 
+          // value={this.state.zip} 
+          onChange={(e) => updateZip(e.target.value)} 
         />
 
 
 
-        <button onClick={()=> this.props.history.push('/wizard/step2') } >Next Step</button>    
+        <button onClick={() => this.props.history.push('/wizard/step2') }>Next Step</button>    
       </div>
      );
   }
@@ -97,4 +109,4 @@ function mapStateToProps(state) {
 
 
 
-export default connect(mapStateToProps)(Step_1);
+export default connect(mapStateToProps, { updateName, updateAddress, updateCity, updateSt, updateZip })(Step_1);
