@@ -1,6 +1,7 @@
 import React from 'react';
 
 function House(props){
+  
   return (
     <div>
       <p>{props.name}</p>
@@ -9,7 +10,7 @@ function House(props){
       <p>{props.state}</p>
       <p>{props.zip}</p>
       
-      <button>Delete</button>
+      <button onClick={() => props.deleteHouseFn(props.property_id)} >Delete</button>
     
     </div>
   )

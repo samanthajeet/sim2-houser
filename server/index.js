@@ -21,4 +21,4 @@ massive(CONNECTION_STRING).then(db => {
 const ctrl = require('./controller')
 app.get(`/api/houses`, ctrl.getHouses)
 app.post(`/api/houses`, ctrl.createHouse)
-
+app.delete('/api/houses/:property_id', ctrl.deleteHouse)

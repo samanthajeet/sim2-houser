@@ -16,5 +16,14 @@ module.exports = {
       res.status(200).send('all good')
     })
 
+  },
+
+  deleteHouse: ( req, res ) => {
+    const db = req.app.get('db')
+    const { property_id }  = req.params
+    console.log(property_id)
+    db.delete_house([property_id]).then( response => {
+      res.status(200).send(response)
+    })
   }
 }
