@@ -35,7 +35,7 @@ class Dashboard extends Component {
 
 
   handleNewProperty(){
-    this.props.history.push('/wizard')
+    this.props.history.push('/wizard/step1')
   }
 
   render() { 
