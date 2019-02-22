@@ -2,14 +2,17 @@ import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import Step1 from '../Step_1/Step_1'
 import Step2 from '../Step_2/Step_2'
-import Step3 from '../Step_3/Step_3'
+import Step3 from '../Step_3/Step_3';
+import { connect } from 'react-redux'
+import { onCancel} from '../../ducks/reducer';
 
 
 class Wizard extends Component {
   
   
   handleCancel(){
-    this.props.history.push('/')
+    this.props.onCancel();
+    this.props.history.push('/');
   }
 
 
@@ -24,10 +27,14 @@ class Wizard extends Component {
           <Route path="/wizard/step3" component={Step3} />
         </Switch>
 
+
+
         <button onClick={() => this.handleCancel()} >Cancel</button>
       </div>
      );
   }
 }
+
+
  
-export default Wizard;
+export default connect(null,{onCancel})(Wizard);

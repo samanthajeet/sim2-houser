@@ -15,8 +15,18 @@ class Step_1 extends Component {
     }
   }
 
+  // componentDidMount(){
+  //   if(this.props.image.length) {
+  //     this.setState({
+  //       name: this.props.name,
+  //       address: this.props.address,
+  //       city: this.props.city,
+  //       state: this.props.st,
+  //       zip: this.props.zip
+  //     })
+  //   }
+  // }
 
-  
   handleCancel(){
     this.props.history.push('/')
   }
@@ -26,22 +36,27 @@ class Step_1 extends Component {
       [e.target.id]: e.target.value
     });
   };
+
+
   
   // handleNext(){
-    //   const { updateName, updateAddress, updateCity, updateSt, updateZip } = this.props
-    //   const { name, address, city, state, zip } = this.state
-    //   updateName(name);
-    //   updateAddress(address);
-    //   updateCity(city);
-    //   updateSt(state);
-    //   updateZip(zip);
-    //   this.props.history.push('/wizard/step2')
-    //   console.log(this.props)
-    // }
+    
+  //     const { updateAddress, updateCity, updateSt, updateZip } = this.props
+  //     const { name, address, city, state, zip } = this.state
+  //     this.props.updateName(name);
+  //     updateAddress(address);
+  //     updateCity(city);
+  //     updateSt(state);
+  //     updateZip(zip);
+  //     this.props.history.push('/wizard/step2')
+  //     console.log(this.props)
+  //   }
     
     
     render() { 
     const { updateName, updateAddress, updateCity, updateSt, updateZip } = this.props
+
+    console.log(this.props)
     
     return ( 
       <div>
@@ -51,7 +66,7 @@ class Step_1 extends Component {
             id="name"
             type="text"
             // value={this.state.name}
-            onChange={ (e) => updateName(e.target.value) }
+            onChange={(e) => updateName(e.target.value)}
         />
 
         <h3>Address</h3>
@@ -95,14 +110,15 @@ class Step_1 extends Component {
 }
  
 function mapStateToProps(state) {
-  const { name, address, city, st, zip } = state
+  const { name, address, city, st, zip, image } = state
 
   return {
     name,
     address,
     city,
     st,
-    zip
+    zip,
+    image
   }
 
 }
