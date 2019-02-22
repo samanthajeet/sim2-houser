@@ -2,6 +2,7 @@ const express = require('express');
 require('dotenv').config()
 const massive = require('massive')
 const app = express();
+
 app.use(express.json())
 
 const { SERVER_PORT, CONNECTION_STRING } = process.env
@@ -15,4 +16,6 @@ massive(CONNECTION_STRING).then(db => {
 
 
 //Endpoints
+const ctrl = require('./controller')
+app.get(`/api/houses`, ctrl.getHouses)
 
