@@ -1,0 +1,30 @@
+.Step1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.property-name {
+  margin-bottom: 10%;
+}
+
+.address-city {
+  display: flex;
+  margin-bottom: 10%;
+}
+
+.state-zip {
+  display: flex;
+  margin-bottom: 10%;
+}
+
+input {
+  padding: 0;
+  margin: 2px;
+}
+
+h3 {
+  margin: 0
+}
+

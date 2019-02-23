@@ -1,18 +1,24 @@
-import React, {Component} from 'react';
-import { connect } from 'react-redux';
-import { updateName, updateAddress, updateCity, updateSt, updateZip } from '../../ducks/reducer'
-
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import "./Step_1.css";
+import {
+  updateName,
+  updateAddress,
+  updateCity,
+  updateSt,
+  updateZip
+} from "../../ducks/reducer";
 
 class Step_1 extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      address: '',
-      city: '',
-      state: '',
+      name: "",
+      address: "",
+      city: "",
+      state: "",
       zip: 0
-    }
+    };
   }
 
   // componentDidMount(){
@@ -27,8 +33,8 @@ class Step_1 extends Component {
   //   }
   // }
 
-  handleCancel(){
-    this.props.history.push('/')
+  handleCancel() {
+    this.props.history.push("/");
   }
 
   handleInput = e => {
@@ -37,10 +43,8 @@ class Step_1 extends Component {
     });
   };
 
-
-  
   // handleNext(){
-    
+
   //     const { updateAddress, updateCity, updateSt, updateZip } = this.props
   //     const { name, address, city, state, zip } = this.state
   //     this.props.updateName(name);
@@ -51,65 +55,88 @@ class Step_1 extends Component {
   //     this.props.history.push('/wizard/step2')
   //     console.log(this.props)
   //   }
-    
-    
-    render() { 
-    const { updateName, updateAddress, updateCity, updateSt, updateZip } = this.props
 
-    console.log(this.props)
-    
-    return ( 
-      <div>
-        <h3>Property Name</h3>
-          <div>
-            <input 
-                id="name"
+  render() {
+    const {
+      updateName,
+      updateAddress,
+      updateCity,
+      updateSt,
+      updateZip
+    } = this.props;
+
+    console.log(this.props);
+
+    return (
+      <div className="Step1">
+        <div>
+          <div className="property-name">
+            <h3>Property Name</h3>
+            <input
+              id="name"
+              type="text"
+              // value={this.state.name}
+              onChange={e => updateName(e.target.value)}
+            />
+          </div>
+          <div className="address-city">
+            <div>
+              <h3>Address</h3>
+              <input
+                id="address"
                 type="text"
-                // value={this.state.name}
-                onChange={(e) => updateName(e.target.value)}
-            />
+                // value={this.state.address}
+                onChange={e => updateAddress(e.target.value)}
+              />
+            </div>
 
-            <h3>Address</h3>
-            <input 
-              id='address'
-              type="text"
-              // value={this.state.address} 
-              onChange={(e) => updateAddress(e.target.value)} 
-            />
-            
-            <h3>City</h3>
-            <input 
-              id='city'
-              type="text"
-              // value={this.state.city} 
-              onChange={(e) => updateCity(e.target.value)} 
-            />
+            <div />
 
-            <h3>State</h3>
-            <input 
-              id='state'
-              type="text"
-              // value={this.state.state} 
-              onChange={(e) => updateSt(e.target.value)} 
-            />
-
+            <div>
+              <h3>City</h3>
+              <input
+                id="city"
+                type="text"
+                // value={this.state.city}
+                onChange={e => updateCity(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="state-zip">
+            <div>
+              <h3>State</h3>
+              <input
+                id="state"
+                type="text"
+                // value={this.state.state}
+                onChange={e => updateSt(e.target.value)}
+              />
+            </div>
+            <div>
             <h3>Zip</h3>
-            <input 
-              id='zip'
-              type="text"
-              // value={this.state.zip} 
-              onChange={(e) => updateZip(e.target.value)} 
-            />
-        </div>  
+              <input
+                id="zip"
+                type="text"
+                // value={this.state.zip}
+                onChange={e => updateZip(e.target.value)}
+              />
 
-        <button onClick={() => this.props.history.push('/wizard/step2') }>Next Step</button>    
+            </div>
+
+
+          </div>
+        </div>
+
+        <button onClick={() => this.props.history.push("/wizard/step2")}>
+          Next Step
+        </button>
       </div>
-     );
+    );
   }
 }
- 
+
 function mapStateToProps(state) {
-  const { name, address, city, st, zip, image } = state
+  const { name, address, city, st, zip, image } = state;
 
   return {
     name,
@@ -118,10 +145,10 @@ function mapStateToProps(state) {
     st,
     zip,
     image
-  }
-
+  };
 }
 
-
-
-export default connect(mapStateToProps, { updateName, updateAddress, updateCity, updateSt, updateZip })(Step_1);
+export default connect(
+  mapStateToProps,
+  { updateName, updateAddress, updateCity, updateSt, updateZip }
+)(Step_1);

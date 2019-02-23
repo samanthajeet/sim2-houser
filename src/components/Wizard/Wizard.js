@@ -20,7 +20,7 @@ class Wizard extends Component {
 
     return ( 
       <div>
-        <h1>Wizard</h1>
+        <h2>Add New Property</h2>
         <Switch>
           <Route  path="/wizard/step1" component={Step1}  />
           <Route path="/wizard/step2" component={Step2} />

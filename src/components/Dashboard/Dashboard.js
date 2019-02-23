@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import House from '../House/House';
-import axios from 'axios'
+import axios from 'axios';
+import './Dashboard.css'
 
 
 class Dashboard extends Component {
