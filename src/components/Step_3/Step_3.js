@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
 import { connect } from 'react-redux'
-import { updateMonthlyMortgage, updateDesiredMortgage} from '../../ducks/reducer';
+import { updateMonthlyMortgage, updateDesiredMortgage, onCancel} from '../../ducks/reducer';
 
 class Step3 extends Component {
   constructor(){
@@ -27,6 +27,7 @@ class Step3 extends Component {
      }).then( res => {
        this.props.history.push('/')
      })
+     this.props.onCancel()
   }
 
   goBack(){
@@ -57,9 +58,11 @@ class Step3 extends Component {
           onChange={ (e) => this.props.updateDesiredMortgage(e.target.value)}
         />
 
-
-        <button onClick={()=> this.goBack()} >Back</button>
-        <button onClick={() => this.createHouse()} >Complete</button> 
+        <div>
+          
+          <button onClick={()=> this.goBack()} >Back</button>
+          <button onClick={() => this.createHouse()} >Complete</button> 
+        </div>
 
       </div>
      );
@@ -81,4 +84,4 @@ function mapStateToProps(state){
   }
 }
  
-export default connect(mapStateToProps, { updateMonthlyMortgage, updateDesiredMortgage})(Step3);
+export default connect(mapStateToProps, { updateMonthlyMortgage, updateDesiredMortgage, onCancel})(Step3);

@@ -60,48 +60,47 @@ class Step_1 extends Component {
     
     return ( 
       <div>
-        <h1>Wizard</h1>
         <h3>Property Name</h3>
-        <input 
-            id="name"
-            type="text"
-            // value={this.state.name}
-            onChange={(e) => updateName(e.target.value)}
-        />
+          <div>
+            <input 
+                id="name"
+                type="text"
+                // value={this.state.name}
+                onChange={(e) => updateName(e.target.value)}
+            />
 
-        <h3>Address</h3>
-        <input 
-          id='address'
-          type="text"
-          // value={this.state.address} 
-          onChange={(e) => updateAddress(e.target.value)} 
-        />
-        
-        <h3>City</h3>
-        <input 
-          id='city'
-          type="text"
-          // value={this.state.city} 
-          onChange={(e) => updateCity(e.target.value)} 
-        />
+            <h3>Address</h3>
+            <input 
+              id='address'
+              type="text"
+              // value={this.state.address} 
+              onChange={(e) => updateAddress(e.target.value)} 
+            />
+            
+            <h3>City</h3>
+            <input 
+              id='city'
+              type="text"
+              // value={this.state.city} 
+              onChange={(e) => updateCity(e.target.value)} 
+            />
 
-        <h3>State</h3>
-        <input 
-          id='state'
-          type="text"
-          // value={this.state.state} 
-          onChange={(e) => updateSt(e.target.value)} 
-        />
+            <h3>State</h3>
+            <input 
+              id='state'
+              type="text"
+              // value={this.state.state} 
+              onChange={(e) => updateSt(e.target.value)} 
+            />
 
-        <h3>Zip</h3>
-        <input 
-          id='zip'
-          type="text"
-          // value={this.state.zip} 
-          onChange={(e) => updateZip(e.target.value)} 
-        />
-
-
+            <h3>Zip</h3>
+            <input 
+              id='zip'
+              type="text"
+              // value={this.state.zip} 
+              onChange={(e) => updateZip(e.target.value)} 
+            />
+        </div>  
 
         <button onClick={() => this.props.history.push('/wizard/step2') }>Next Step</button>    
       </div>

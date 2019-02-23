@@ -50,6 +50,7 @@ class Dashboard extends Component {
           city={house.city}
           state={house.state}
           zip={house.zip}
+          image={house.image}
           deleteHouseFn={this.deleteHouse}
         />
         </div>
@@ -57,9 +58,8 @@ class Dashboard extends Component {
     })
     return ( 
       <div>
-        <h1>Dashboard</h1>
-        {mappedHouses}
         <button  onClick={()=> this.handleNewProperty()}>Add New Property</button>
+        {mappedHouses}
       </div>
      );
   }

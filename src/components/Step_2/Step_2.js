@@ -35,15 +35,16 @@ class Step2 extends Component {
     return ( 
       <div>
 
-        <h3>Image Urls</h3>
+        <h3>Image Url</h3>
         <input 
           value={this.state.image}
           onChange={ (e) => this.handleImage(e.target.value)}
         />
 
-
-        <button onClick={()=> this.props.history.push('/wizard/step1') } >Back</button>
-        <button onClick={()=> this.onNext() } >Next Step</button> 
+        <div>
+          <button onClick={()=> this.props.history.push('/wizard/step1') } >Back</button>
+          <button onClick={()=> this.onNext() } >Next Step</button> 
+        </div>
 
 
 
